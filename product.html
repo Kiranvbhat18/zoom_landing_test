@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZoomCall Pro — Product Page (A/B Testing)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .navbar-brand { font-weight: 700; font-size: 1.5rem; }
+        .hero {
+            background: linear-gradient(to right, #4aa3ff, #0d6efd);
+            color: #fff; padding: 70px 20px; text-align: center;
+        }
+        .hero-btn { padding: 12px 28px; font-size: 18px; border-radius: 40px; }
+
+        .product-card { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .ribbon {
+            position: absolute; background: crimson; color: #fff; padding: 5px 14px;
+            font-size: 14px; top: 10px; left: -8px; transform: rotate(-15deg); border-radius: 4px;
+        }
+
+        .test-section { background: #f8f9fa; padding: 40px; border-radius: 12px; }
+        footer { background: #0d6efd; color: white; text-align: center; padding: 18px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand text-primary" href="index.html">ZoomCall Pro</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto gap-3">
+                <li class="nav-item"><a class="nav-link" href="#variants">Variants</a></li>
+                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1 class="fw-bold mb-3">Explore Our Video Calling Products</h1>
+    <p class="lead mb-4">A/B Test ready product layout to compare user behavior.</p>
+</section>
+
+<!-- A/B Testing Variants -->
+<div class="container my-5" id="variants">
+    <h2 class="fw-bold text-center mb-4">A/B Testing Variants</h2>
+
+    <div class="row g-4" id="variantProducts">
+            <!-- Dynamic A/B products injected by JS -->
+        </div>
+    </div>
+
+    <script>
+        const variantProducts = [
+            {
+                variant: "A",
+                discount: "40% OFF",
+                img: "https://images.pexels.com/photos/3184324/pexels-photo-3184324.jpeg",
+                title: "ZoomCall Premium A",
+                desc: "Designed to maximize conversion with a strong CTA.",
+                btn: "btn-primary",
+                btnText: "Buy Now A"
+            },
+            {
+                variant: "B",
+                discount: "60% OFF",
+                img: "https://images.pexels.com/photos/3861967/pexels-photo-3861967.jpeg",
+                title: "ZoomCall Premium B",
+                desc: "Focuses on quality & trust-building elements.",
+                btn: "btn-outline-success",
+                btnText: "Buy Now B"
+            }
+        ];
+
+        const container = document.getElementById('variantProducts');
+
+        container.innerHTML = variantProducts.map(p => `
+            <div class="col-md-6">
+                <div class="test-section">
+                    <h4 class="fw-bold mb-3">Variant ${p.variant} — Auto Rendered</h4>
+                    <div class="product-card position-relative">
+                        <span class="ribbon">${p.discount}</span>
+                        <img src="${p.img}" class="img-fluid">
+                        <div class="p-3">
+                            <h5 class="fw-bold">${p.title}</h5>
+                            <p>${p.desc}</p>
+                            <button class="btn ${p.btn} w-100 py-2">${p.btnText}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    </script>
+            </div>
+        </div>
+
+        <!-- Variant B -->
+        <div class="col-md-6">
+            <div class="test-section">
+                <h4 class="fw-bold mb-3">Variant B — Clean Layout With Subtle CTA</h4>
+                <div class="product-card position-relative">
+                    <span class="ribbon" style="background:darkgreen;">60% OFF</span>
+                    <img src="https://images.pexels.com/photos/3861967/pexels-photo-3861967.jpeg" class="img-fluid">
+                    <div class="p-3">
+                        <h5 class="fw-bold">ZoomCall Premium B</h5>
+                        <p>Focuses on quality & trust-building elements.</p>
+                        <button class="btn btn-outline-success w-100 py-2">Buy Now B</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container my-5" id="features">
+    <h2 class="fw-bold text-center mb-4">Features</h2>
+
+    <div class="row g-4">
+        <div class="col-md-4"><div class="p-3 border rounded">HD Video Calls</div></div>
+        <div class="col-md-4"><div class="p-3 border rounded">Unlimited Meetings</div></div>
+        <div class="col-md-4"><div class="p-3 border rounded">Screen Sharing</div></div>
+        <div class="col-md-4"><div class="p-3 border rounded">Cloud Recordings</div></div>
+        <div class="col-md-4"><div class="p-3 border rounded">Webinar Support</div></div>
+        <div class="col-md-4"><div class="p-3 border rounded">Team Collaboration</div></div>
+    </div>
+</div>
+
+<!-- Pricing -->
+<div class="container my-5" id="pricing">
+    <h2 class="fw-bold text-center mb-4">Pricing Plans</h2>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="border rounded p-4 text-center">
+                <h4 class="fw-bold">Basic</h4>
+                <p class="display-6">₹299</p>
+                <button class="btn btn-primary w-100">Choose Plan</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="border rounded p-4 text-center shadow">
+                <h4 class="fw-bold">Standard</h4>
+                <p class="display-6">₹599</p>
+                <button class="btn btn-success w-100">Choose Plan</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="border rounded p-4 text-center">
+                <h4 class="fw-bold">Premium</h4>
+                <p class="display-6">₹999</p>
+                <button class="btn btn-dark w-100">Choose Plan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    © 2025 ZoomCall Pro — Product Page A/B Testing Edition
+</footer>
+
+</body>
+</html>
